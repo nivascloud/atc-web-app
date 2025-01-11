@@ -51,7 +51,7 @@ Before deploying this application, ensure you have the following:
    - **Password:** `password@123`
    - **Access Keys:**  
      - Access Key: `AKIATX3PIJWPRINCQJHU`  
-     - Secret Key: `7DsylgfdiJwXJqw7D2uIvGUUirG/xfoBER4lNP8`
+     - Secret Key: `7Dsy************************8`
    - **IAM Policy:** Create a custom policy named `atc-web-app`:
      ```json
      {

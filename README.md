@@ -97,7 +97,7 @@ The repository contains three main directories:
 
 ---
 
-### Steps to Deploy the infrastructure
+### Steps to Deploy infrastructure and application
 
 #### Step 1: Deploy Infrastructure Using Terraform
 

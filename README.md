@@ -107,16 +107,16 @@ The repository contains three main directories:
      terraform init
      terraform plan -out=tfplan
      terraform apply -auto-approve
-  ``'
-  Outputs: eks_cluster_endpoint = "https://9A1068ED050C5A99E14D546C0781AB84.gr7.us-east-1.eks.amazonaws.com"
-  
-2. Build and Push the Application Image to Docker Hub
+   ```
+    Outputs: eks_cluster_endpoint = "https://9A1068ED050C5A99E14D546C0781AB84.gr7.us-east-1.eks.amazonaws.com"
+   
+3. Build and Push the Application Image to Docker Hub
    ```bash
       cd atc-web-app/app
       docker build -t <docker_hub_username>/atc-web-app:<tag> .
       docker push <docker_hub_username>/atc-web-app:<tag>
    ```
-  Verify in the your docker hub account.
+    Verify in the your docker hub account.
   
 3. Deploy Application and Services on EKS
   ```bash
@@ -139,9 +139,3 @@ The repository contains three main directories:
   ![image](https://github.com/user-attachments/assets/07dd36f3-aa3f-42cc-a175-3b2f95f4aab1)
   ![image](https://github.com/user-attachments/assets/477b0c1a-d5f0-4ffa-a580-de1fa9229783)
   ![image](https://github.com/user-attachments/assets/51861e30-8009-41e8-a6b8-4c9b9de27d7f)
-
-
-
-
-
-

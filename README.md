@@ -107,6 +107,39 @@ The repository contains three main directories:
    terraform init
    terraform plan -out=tfplan
    terraform apply -auto-approve
+  ``'
+  Outputs: eks_cluster_endpoint = "https://9A1068ED050C5A99E14D546C0781AB84.gr7.us-east-1.eks.amazonaws.com"
+2. Build and Push the Application Image to Docker Hub
+  ```bash
+    cd atc-web-app/app
+    docker build -t <docker_hub_username>/atc-web-app:<tag> .
+    docker push <docker_hub_username>/atc-web-app:<tag>
   ```
-Outputs: eks_cluster_endpoint = "https://9A1068ED050C5A99E14D546C0781AB84.gr7.us-east-1.eks.amazonaws.com"
-Step 2: Build and Push the Application Image to Docker Hub
+  Verify in the your docker hub account.
+3. Deploy Application and Services on EKS
+  ```bash
+    cd atc-web-app/kubernetes
+    kubectl apply -f namespace.yaml
+    kubectl apply -f webapp-deployment.yaml
+    kubectl apply -f prometheus-config.yaml
+    kubectl apply -f prometheus-deployment.yaml
+    kubectl apply -f grafana-datasource-config.yaml
+    kubectl apply -f grafana-deployment.yaml
+  ```
+4. Verify the deployment
+  ```bash
+    kubectl get pods -n webapp
+    kubectl get pods -n monitoring
+    kubectl get svc -n webapp
+    kubectl get svc -n monitoring
+  ```
+  ![image](https://github.com/user-attachments/assets/e6c09fcf-7268-4f5b-9eef-bce0941c33da)
+  ![image](https://github.com/user-attachments/assets/07dd36f3-aa3f-42cc-a175-3b2f95f4aab1)
+  ![image](https://github.com/user-attachments/assets/477b0c1a-d5f0-4ffa-a580-de1fa9229783)
+  ![image](https://github.com/user-attachments/assets/51861e30-8009-41e8-a6b8-4c9b9de27d7f)
+
+
+
+
+
+

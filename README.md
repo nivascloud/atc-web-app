@@ -118,7 +118,12 @@ The repository contains three main directories:
    ```
     Verify in the your docker hub account.
   
-3. Deploy Application and Services on EKS
+3. kubectl config to local machine.
+   ```bash
+     aws eks update-kubeconfig --region us-east-1 --name my-eks-cluster
+   ```
+
+4. Deploy Application and Services on EKS
   ```bash
       cd atc-web-app/kubernetes
       kubectl apply -f namespace.yaml
@@ -128,7 +133,7 @@ The repository contains three main directories:
       kubectl apply -f grafana-datasource-config.yaml
       kubectl apply -f grafana-deployment.yaml
   ```
-4. Verify the deployment
+5. Verify the deployment
   ```bash
       kubectl get pods -n webapp
       kubectl get pods -n monitoring

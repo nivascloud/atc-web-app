@@ -104,9 +104,9 @@ The repository contains three main directories:
 1. Navigate to the Terraform directory:  
    ```bash
    cd terraform
-    terraform init
-    terraform plan -out=tfplan
-    terraform apply -auto-approve
+   terraform init
+   terraform plan -out=tfplan
+   terraform apply -auto-approve
   ```
-
-
+Outputs: eks_cluster_endpoint = "https://9A1068ED050C5A99E14D546C0781AB84.gr7.us-east-1.eks.amazonaws.com"
+Step 2: Build and Push the Application Image to Docker Hub

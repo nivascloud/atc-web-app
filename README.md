@@ -124,6 +124,8 @@ The repository contains three main directories:
    ```
 
 4. Deploy Application and Services on EKS
+   Update image url (<docker_hub_username>/atc-web-app:<tag>) in the webapp-deployment.yaml line number 18.
+
   ```bash
       cd atc-web-app/kubernetes
       kubectl apply -f namespace.yaml

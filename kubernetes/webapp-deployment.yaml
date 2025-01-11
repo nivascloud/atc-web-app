@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp
+  namespace: webapp  # Use the appropriate namespace if needed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+        - name: webapp
+          image: nivascloud/atc-web-app:v1.2   # Replace with your Docker image
+          ports:
+            - containerPort: 8080  # Port for the Flask app
+            - containerPort: 8000  # Port for Prometheus metrics
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-service
+  namespace: webapp
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http-port      # Added name to the first port
+      port: 8080
+      targetPort: 8080
+      protocol: TCP
+    - name: metrics-port   # Added name to the second port
+      port: 8000
+      targetPort: 8000
+      protocol: TCP
+  selector:
+    app: webapp
+
